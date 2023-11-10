@@ -10,6 +10,7 @@ jobs:
     steps:
     - name: Checkout project sources
       uses: actions/checkout@v3
+    
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
     
@@ -19,6 +20,6 @@ jobs:
     - name: Run build with Gradle Wrapper
       run: ./gradlew clean build
       
-     - name: Run javadoc with Gradle Wrapper
+    - name: Run javadoc with Gradle Wrapper
       run: ./gradlew javadoc 
          
