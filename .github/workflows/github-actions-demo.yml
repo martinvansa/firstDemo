@@ -1,0 +1,11 @@
+name: My first Github Action
+on: 
+  # Rucne
+  # workflow_dispatch:
+ push:
+jobs:
+  Vansa_Martin-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo output
+        run: echo "Hello Martin Vansa!"
