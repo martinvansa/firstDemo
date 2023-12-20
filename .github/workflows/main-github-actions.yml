@@ -7,14 +7,13 @@ on:
 jobs:
   prebuild:
     runs-on: ubuntu-latest
-
     steps:
       # Create a Docer image
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file deploy/docker/Dockerfile --tag my-image-martivansa:$(date +%s)
   login:
-    needs: [ prebuild ]
+    runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
