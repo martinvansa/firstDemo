@@ -1,4 +1,12 @@
 # Basic nginx dockerfile starting with Ubuntu 20.04
-FROM ubuntu:20.04
-RUN apt-get -y update
-RUN apt-get -y install nginx
+# Dockerfile example
+
+FROM mcr.microsoft.com/java/jdk:11-zulu-centos as build
+
+WORKDIR /firstDemo
+
+CMD ["./gradlew", "clean", "bootJar"]
+
+COPY build/libs/*.jar app.jar
+
+EXPOSE 8080
