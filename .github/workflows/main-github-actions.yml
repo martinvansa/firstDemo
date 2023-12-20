@@ -3,7 +3,7 @@ on:
   # Rucne
   #workflow_dispatch:
   push:
-    branches: [ dev ]
+    branches: [ main ]
 jobs:
   Vansa_Martin-job:
     runs-on: ubuntu-latest
