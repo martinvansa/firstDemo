@@ -5,7 +5,7 @@ on:
   push:
     branches: [ main ]
 jobs:
-  login:
+  - job: A
     runs-on: ubuntu-latest
     steps:
       # Login to Docker Hub
@@ -14,7 +14,3 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # Create a Docer image
-      - name: Build the Docker image
-        uses: actions/checkout@v2
-        run: docker build . --file deploy/docker/Dockerfile --tag my-image-martivansa:$(date +%s)
