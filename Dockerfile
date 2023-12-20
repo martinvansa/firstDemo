@@ -7,6 +7,6 @@ WORKDIR /app
 
 CMD ["./gradlew", "clean", "bootJar"]
 
-COPY build/libs/*.jar ./app.jar
+COPY build/libs/firstDemo-0.0.1-SNAPSHOT.jar ./app.jar
 
 EXPOSE 8080
