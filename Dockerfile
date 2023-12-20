@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/java/jdk:11-zulu-centos as build
 COPY firstDemo/ /src
 WORKDIR /src
 
-RUN chmod 0755 ./mvnw
+RUN chmod 0755 ./gradlew
 
 RUN ./gradlew clean build
 
