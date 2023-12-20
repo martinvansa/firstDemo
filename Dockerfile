@@ -1,18 +1,17 @@
 # Basic nginx dockerfile starting with Ubuntu 20.04
 # Dockerfile example
-#FROM mcr.microsoft.com/java/jdk:11-zulu-centos as build
+FROM mcr.microsoft.com/java/jdk:11-zulu-centos as build
 
-FROM gradle:4.2.1-jdk:11-zulu-centos
-WORKDIR /app
-COPY --from=0 /app/myProject /app
+COPY firstDemo/ /src
+WORKDIR /src
 
-USER root                # This changes default user to root
-RUN chown -R gradle /app # This changes ownership of folder
-USER gradle              # This changes the user back to the default user "gradle"
+RUN chmod 0755 ./mvnw
 
-RUN ./gradlew build --stacktrace
+RUN ./gradlew clean build
 
-COPY build/libs/firstDemo-0.0.1-SNAPSHOT.jar ./app.jar
+FROM mcr.microsoft.com/java/jdk:11-zulu-centos
+
+COPY build/libs/firstDemo-0.0.1-SNAPSHOT.jar /deployments/app.jar
 
 CMD ["./gradlew", "clean", "bootJar"]
 
