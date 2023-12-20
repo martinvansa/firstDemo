@@ -3,10 +3,10 @@
 
 FROM mcr.microsoft.com/java/jdk:11-zulu-centos as build
 
-WORKDIR /firstDemo
+WORKDIR /app
 
 CMD ["./gradlew", "clean", "bootJar"]
 
-COPY build/libs/*.jar app.jar
+COPY build/libs/*.jar ./app.jar
 
 EXPOSE 8080
