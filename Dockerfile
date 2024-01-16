@@ -9,7 +9,7 @@ RUN ./gradlew clean build
 
 FROM mcr.microsoft.com/java/jdk:11-zulu-centos
 
-COPY --from=build /build/libs/firstDemo-0.0.1-SNAPSHOT.jar /deployments/app.jar
+COPY --from=build /src/build/libs/firstDemo-0.0.1-SNAPSHOT.jar /deployments/app.jar
 
 CMD ["./gradlew", "clean", "bootJar"]
 
