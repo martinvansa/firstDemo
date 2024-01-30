@@ -11,6 +11,6 @@ FROM mcr.microsoft.com/java/jdk:11-zulu-centos
 
 COPY --from=build /src/build/libs/firstDemo-0.0.1-SNAPSHOT.jar /deployments/app.jar
 
-CMD ["./gradlew", "clean", "bootJar"]
+ENTRYPOINT ["java","-jar","/deployments/app.jar"]
 
 EXPOSE 8080
