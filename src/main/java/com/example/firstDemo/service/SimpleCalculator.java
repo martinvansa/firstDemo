@@ -1,5 +1,8 @@
-package com.example.firstDemo.cal;
+package com.example.firstDemo.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class SimpleCalculator {
 
 
